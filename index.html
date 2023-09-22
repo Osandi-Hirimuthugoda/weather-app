@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="scripts/scripts.js" defer></script>
+    <title>Weather</title>
+    <link rel="stylesheet" href="style/style.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+</head>
+<body>
+    <h1>LOCAL WEATHER APP</h1>
+    <div class="container">
+        <div class="weather-input">
+            <div class="location-txt">Select the Country</div>
+            <select name="country-list" id="country-list">
+                <option value="Sri Lanka">Sri Lanka</option>
+                <option value="America">America</option>
+            </select>
+            <div class="location-txt">Select the City</div>
+            <select name="country-list" id="country-list">
+                <option value="Galle">Galle</option>
+                <option value="Matra">Matra</option>
+            </select>
+            <button class="search-btn">Search</button>
+        </div>
+        <div class="weather-data">
+            <div class="current-weather">
+                <div class="details">
+                    <h2>Colombo</h2>
+                    <h4>2023-09-27</h4>
+                    <h4>Temperatature: 28°C</h4>
+                    <h4>Wind: 3mph </h4>
+                    <h4>Humidity: 75% </h4>
+                    <h4>Moderate cloudy-day </h4>
+                </div>
+                <div class="icons">
+                    <img src="img/cloudy-day.png" alt="weather-icon"> 
+                </div>
+            </div>
+            <div class="days-forecast">
+                <h2>5-Day Forecast</h2>
+                <ul class="weather-cards">
+                    <li class="card">
+                        <h3>Colombo 2023-09-27</h3>
+                        <img src="img/cloudy-day.png" alt="weather-icon">
+                        <h4>Temperatature: 31.10°C</h4>  
+                        <h4>Wind: 4mph </h4>
+                        <h4>Humidity: 79% </h4>
+                    </li>
+                    <li class="card">
+                        <h3>Colombo 2023-09-27</h3>
+                        <img src="img/cloudy-day.png" alt="weather-icon">
+                        <h4>Temperatature: 31.10°C</h4>
+                        <h4>Wind: 4mph </h4>
+                        <h4>Humidity: 79% </h4>
+                    </li>
+                    <li class="card">
+                        <h3>Colombo 2023-09-27</h3>
+                        <img src="img/cloudy-day.png" alt="weather-icon">
+                        <h4>Temperatature: 31.10°C</h4>
+                        <h4>Wind: 4mph </h4>
+                        <h4>Humidity: 79% </h4>
+                    </li>
+                    <li class="card">
+                        <h3>Colombo 2023-09-27</h3>
+                        <img src="img/cloudy-day.png" alt="weather-icon">
+                        <h4>Temperatature: 31.10°C</h4>
+                        <h4>Wind: 4mph </h4>
+                        <h4>Humidity: 79% </h4>
+                    </li>
+                    <li class="card">
+                        <h3>Colombo 2023-09-27</h3>
+                        <img src="img/cloudy-day.png" alt="weather-icon">
+                        <h4>Temperatature: 31.10°C</h4>
+                        <h4>Wind: 4mph </h4>
+                        <h4>Humidity: 79% </h4>
+                    </li>
+                </ul>    
+            </div>
+        </div>    
+    </div>
+    
+</body>
+</html>
