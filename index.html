@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style/style.css">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
 </head>
-<body>
+<body onload="geoFindMe()">
     <h1>LOCAL WEATHER APP</h1>
     <div class="container">
         <div class="weather-input">
@@ -54,22 +54,22 @@
         <div class="weather-data">
             <div class="current-weather">
                 <div class="details">
-                    <h2>Colombo</h2>
-                    <h4>2023-09-27</h4>
-                    <h4>Temperatature: 28°C</h4>
-                    <h4>Wind: 3mph </h4>
-                    <h4>Humidity: 75% </h4>
-                    <h4>Moderate cloudy-day </h4>
+                    <h2 id="city-detail"></h2>
+                    <h4 id="date-time"></h4>
+                    <h4 id="Temperatature"></h4>
+                    <h4 id="Wind"></h4>
+                    <h4 id="Humidity"></h4>
+                    <h4 id="Moderate"></h4>
                 </div>
                 <div class="icons">
-                    <img src="img/cloudy-day.png" alt="weather-icon"> 
+                    <img id="icon-img"  alt="weather-icon"> 
                 </div>
             </div>
             <div class="days-forecast">
                 <h2>5-Day Forecast</h2>
                 <ul class="weather-cards">
-                    <li class="card">
-                        <h3>Colombo 2023-09-27</h3>
+                    <!-- <li class="card">
+                        <h3 id="detail">Colombo 2023-09-27</h3>
                         <img src="img/cloudy-day.png" alt="weather-icon">
                         <h4>Temperatature: 31.10°C</h4>  
                         <h4>Wind: 4mph </h4>
@@ -102,7 +102,7 @@
                         <h4>Temperatature: 31.10°C</h4>
                         <h4>Wind: 4mph </h4>
                         <h4>Humidity: 79% </h4>
-                    </li>
+                    </li> -->
                 </ul>    
             </div>
         </div>
