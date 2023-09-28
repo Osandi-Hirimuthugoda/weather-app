@@ -74,6 +74,48 @@ function geoFindMe() {
                 })
             });
 
+    fetch(`${BASE_URL}/forecast.json?key=${API_KEY}&q=${latitude},${longitude}&days=5&alerts=yes`)
+        .then(res => res.json())
+            .then((data) => {
+              console.log(data);
+              const div = document.querySelector(".warnings-data");
+              const h2 = document.createElement("h2");
+              h2.textContent = "Warnings";
+              div.appendChild(h2);
+
+              if(data.alerts.alert.length>0){
+                data.alerts.alert.forEach((itm)=>{
+                  const div1 = document.createElement("div");
+                  div1.className = "warnings-cards";
+                  div1.innerHTML = `
+                    <div class="card">
+                          <h4>${itm.event}</h4>
+                          <h5>Start Date : ${item.effective}</h5>
+                          <h5>End Date : ${item.expires}</h5>
+                          <h5>Severity : ${item.severity}</h5>
+                      </div>
+                      <div class="icons">
+                          <img src="img/alarm.png"/>
+                      </div>
+                  `;
+                  div.appendChild(div1);
+              })
+            }else{
+              const div1 = document.createElement("div");
+              div1.className = "warnings";
+              div1.innerHTML = `
+                <h1>No Warnings</h1>
+              `;
+              div.appendChild(div1);
+            }
+    });
+
+
+    fetch("../data/country.json").then(res => res.json()).
+      then((data)=>{
+        console.log(data);
+      })
+
 
   }
 

@@ -208,3 +208,7 @@ h1 {
   height: 70px;
   width: 70px;
 }
+.warnings h1 {
+  background: yellow;
+  color: black;
+}
