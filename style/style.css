@@ -46,6 +46,26 @@ h1 {
   margin-bottom: 20px;
 }
 
+.weather-input .separator {
+  height: 1px;
+  width: 100%;
+  margin: 25px 0;
+  background: #bbb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-input .separator::before {
+  content: "or";
+  color: blueviolet;
+  font-size: 1.2rem;
+  padding: 0 15px;
+  margin-top: -4px;
+  background: #dfdada;
+  
+}
+
 .weather-input select {
   border: none;
   padding-top: 2%;

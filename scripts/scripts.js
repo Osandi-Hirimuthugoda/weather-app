@@ -1,28 +1,58 @@
-const countryInput = document.querySelector(".country-btn")
-const cityInput = document.querySelector(".city-btn")
-const searchButton = document.querySelector(".search-btn")
- 
 const API_KEY = "4d715cb6c0d141d2ac6161403231909";
 const BASE_URL ="http://api.weatherapi.com/v1";
 
 const getCityCoordinates = () => {
-    const countryName = countryInput.value.trim();
-    if(!countryName) return;
-    const GEOCODING_API_URL = `http://api.openweathermap.org/geo/1.0/direct?q=${countryName}&limit=1&appid=${API_KEY}`;
-
-    fetch(GEOCODING_API_UR).then.apply(res => res.json()).then(data => {
-        if(!data.length)return alert(`No coordinates found for ${countryName}`);
-        const {name, lat, lon } = data[0];
-        getWeatherDeatails(name, lat, lon);
-    }).catch(() => {
-        alert("An error occurred while fetching the coordinates!");
-    })
+    const cityInput = document.querySelector(".city-input");
     const cityName = cityInput.value.trim();
-    if(!cityName) return;
+    const dateInput = document.querySelector("#past-date");
+    const date = dateInput.value;
+    today = new Date();
+    selectedDate = new Date(date)
+    if(!cityName){
+      return;
+    }
+    if(!date || (today.getYear()==selectedDate.getYear() && today.getMonth() == selectedDate.getMonth() && today.getDate() == selectedDate.getDate())){
+      fetch(`${BASE_URL}/current.json?key=${API_KEY}&q=${cityName}`).then(res => res.json()).then((data) => {
+        console.log(data);
+        const detail = document.querySelector("#city-detail");
+        const time = document.querySelector("#date-time");
+        const temp = document.querySelector("#Temperatature");
+        const wind = document.querySelector("#Wind");
+        const humidity = document.querySelector("#Humidity");
+        const moderate = document.querySelector("#Moderate");
 
-    console.log(cityName);
+        detail.textContent = `${data.location.name}`;
+        time.textContent = data.location.localtime;
+        temp.textContent = `Temperatature: ${data.current.temp_c}°C`;
+        wind.textContent = `Wind: ${data.current.wind_mph}mph`;
+        humidity.textContent = `Humidity: ${data.current.humidity}%`;
+        moderate.textContent = `${data.current.condition.text}`;
+
+      })
+    }else if(selectedDate<today){
+      fetch(`${BASE_URL}/history.json?key=${API_KEY}&dt=${date}&q=${cityName}`).then(res => res.json()).then((data) => {
+        console.log(data);
+        const detail = document.querySelector("#city-detail");
+        const time = document.querySelector("#date-time");
+        const temp = document.querySelector("#Temperatature");
+        const wind = document.querySelector("#Wind");
+        const humidity = document.querySelector("#Humidity");
+        const moderate = document.querySelector("#Moderate");
+
+        detail.textContent = `${data.location.name}`;
+        time.textContent = data.forecast.forecastday[0].date;
+        temp.textContent = `Temperatature: ${data.forecast.forecastday[0].day.avgtemp_c}°C`;
+        wind.textContent = `Wind: ${data.forecast.forecastday[0].day.maxwind_mph}mph`;
+        humidity.textContent = `Humidity: ${data.forecast.forecastday[0].day.avghumidity}%`;
+        moderate.textContent = `${data.forecast.forecastday[0].day.condition.text}`;
+
+      })
+    }
+
+    
+
+    
 }
-searchButton.addEventListener("click", getCityCoordinates);
 
 function geoFindMe() {
 

@@ -12,19 +12,13 @@
     <h1>LOCAL WEATHER APP</h1>
     <div class="container">
         <div class="weather-input">
-            <div class="location-txt">Select the Country</div>
-            <select name="country-list" id="country-list">
-                <option value="Sri Lanka">Sri Lanka</option>
-                <option value="America">America</option>
-            </select>
-            <div class="location-txt">Select the City</div>
-            <select name="country-list" id="country-list">
-                <option value="Galle">Galle</option>
-                <option value="Matra">Matra</option>
-            </select>
+            <div class="location-txt">Enter a City Name</div>
+            <input class="city-input" type="text" placeholder="E.g: Galle">
             <div class="location-txt">Select the Date</div>
             <input type="date" id="past-date" name="past-date" />
-            <button class="search-btn">Search</button>
+            <button class="search-btn" onclick="getCityCoordinates()">Search</button>
+            <div class="separator"></div>
+            <button class="location-btn">Use Current Location</button>
             <div class="warnings-data">
                 
             </div>
