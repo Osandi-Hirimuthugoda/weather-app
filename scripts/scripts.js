@@ -27,6 +27,7 @@ const getCityCoordinates = () => {
         wind.textContent = `Wind: ${data.current.wind_mph}mph`;
         humidity.textContent = `Humidity: ${data.current.humidity}%`;
         moderate.textContent = `${data.current.condition.text}`;
+        icon.src = `https:${data.current.condition.icon}`;
 
       })
     }else if(selectedDate<today){
@@ -38,6 +39,7 @@ const getCityCoordinates = () => {
         const wind = document.querySelector("#Wind");
         const humidity = document.querySelector("#Humidity");
         const moderate = document.querySelector("#Moderate");
+        const icon = document.querySelector("#icon-img");
 
         detail.textContent = `${data.location.name}`;
         time.textContent = data.forecast.forecastday[0].date;
